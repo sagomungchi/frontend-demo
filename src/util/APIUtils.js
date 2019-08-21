@@ -30,14 +30,14 @@ export function getAllPolls(page, size) {
   size = size || POLL_LIST_SIZE;
 
   return request({
-    url: API_BASE_URL + '/polls?page=' + page + '&size=' + size,
+    url: API_BASE_URL + '/projectss?page=' + page + '&size=' + size,
     method: 'GET',
   });
 }
 
 export function createPoll(pollData) {
   return request({
-    url: API_BASE_URL + '/polls',
+    url: API_BASE_URL + '/projects',
     method: 'POST',
     body: JSON.stringify(pollData),
   });
@@ -45,7 +45,7 @@ export function createPoll(pollData) {
 
 export function castVote(voteData) {
   return request({
-    url: API_BASE_URL + '/polls/' + voteData.pollId + '/votes',
+    url: API_BASE_URL + '/projects/' + voteData.pollId + '/investments',
     method: 'POST',
     body: JSON.stringify(voteData),
   });
@@ -110,7 +110,7 @@ export function getUserCreatedPolls(username, page, size) {
       API_BASE_URL +
       '/users/' +
       username +
-      '/polls?page=' +
+      '/projectss?page=' +
       page +
       '&size=' +
       size,
@@ -127,7 +127,7 @@ export function getUserVotedPolls(username, page, size) {
       API_BASE_URL +
       '/users/' +
       username +
-      '/votes?page=' +
+      '/investments?page=' +
       page +
       '&size=' +
       size,
